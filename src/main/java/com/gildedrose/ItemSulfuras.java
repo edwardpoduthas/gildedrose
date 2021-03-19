@@ -1,17 +1,17 @@
 package com.gildedrose;
 
-public class ItemSulfuras implements ItemInterface{
+public class ItemSulfuras extends ItemAdaptor implements ItemInterface{
 
     private static final Integer MAX_QUALITY = 80;
     private Item item;
 
     public ItemSulfuras(Item item) {
-        this.item = item;
+        super(item);
     }
 
     @Override
     public void update() {
         // never changes in quality but drops in sellIn
-        item.sellIn -= 1;
+        item.setSellIn(item.getSellIn() - 1);
     }
 }
